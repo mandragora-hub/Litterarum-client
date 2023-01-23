@@ -37,11 +37,12 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@vueuse/nuxt',
     'nuxt-windicss',
+    '@nuxt/image-edge',
   ],
 
   // experimental features
   experimental: {
-    reactivityTransform: false,
+    reactivityTransform: true,
   },
 
   // auto import components
