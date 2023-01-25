@@ -68,5 +68,8 @@
     "**/*.{js,ts,vue,html}": [
       "pnpm lintfix"
     ]
+  },
+  "dependencies": {
+    "vue3-carousel": "^0.2.9"
   }
 }

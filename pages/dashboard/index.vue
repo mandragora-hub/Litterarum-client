@@ -28,7 +28,6 @@ definePageMeta({
         <div v-for="i in 2" :key="i" class="text-6xl uppercase">
           {{ $t('pages.blank.just_blank_page_with_title') }}
         </div>
-        sdf
       </PageSection>
       <PageSection>
         <CarouselAutoQuery
