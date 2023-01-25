@@ -72,3 +72,11 @@ others:
   copy: copy
   enabled: enabled
   disabled: disabled
+
+Trending Books: "Trending Books"
+Popular Books: "Popular Books"
+Top Rated Books: "Top Rated Books"
+Upcoming Books: "Upcoming Books"
+Popular Authors: "Popular Authors"
+Top Rated Authors: "Top Rated Authors"
+Explore more: "Explore more"
