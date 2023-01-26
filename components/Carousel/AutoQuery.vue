@@ -3,11 +3,12 @@ import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Navigation, Slide, Pagination } from 'vue3-carousel'
 import type { QueryItem } from '~/types'
 
-defineProps<{
+const props = defineProps<{
   query: QueryItem
 }>()
-// const item = await listMedia(query.type, query.query, 1)
 
+const item = await listMedia(props.query.type, props.query.query, 1)
+console.log(item)
 const defaultSettings = {
   itemsToShow: 2,
   snapAlign: 'start',
@@ -21,35 +22,6 @@ const breakpoints = {
     itemsToShow: 5,
     snapAlign: 'start',
   },
-}
-
-const item = {
-  results: [
-    {
-      id: 123,
-    },
-    {
-      id: 124,
-    },
-    {
-      id: 125,
-    },
-    {
-      id: 126,
-    },
-    {
-      id: 127,
-    },
-    {
-      id: 128,
-    },
-    {
-      id: 129,
-    },
-    {
-      id: 130,
-    },
-  ],
 }
 </script>
 

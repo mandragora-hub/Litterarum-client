@@ -70,6 +70,9 @@
     ]
   },
   "dependencies": {
+    "lru-cache": "^7.14.1",
+    "ohash": "^1.0.0",
+    "ohmyfetch": "^0.4.21",
     "vue3-carousel": "^0.2.9"
   }
 }
