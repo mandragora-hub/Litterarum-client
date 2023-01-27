@@ -3,9 +3,10 @@ import LRU from 'lru-cache'
 import { hash as ohash } from 'ohash'
 import type { Tag, MediaType, PageResult, Book, Author } from '../types'
 
-// const apiBaseUrl = 'http://localhost:3001'
-const apiBaseUrl = 'https://litterarum.onrender.com'
+const apiBaseUrl = 'http://localhost:3000'
+// const apiBaseUrl = 'https://litterarum.onrender.com'
 const API_VERSION = 'api/v1'
+const ACCESS_TOKEN = 'b14eub2ig974nk92kv231w'
 
 const cache = new LRU({
   max: 500,
@@ -22,6 +23,9 @@ function _fetchLitterarumApi(
   // }
   return $fetch(url, {
     baseURL: `${apiBaseUrl}/${API_VERSION}`,
+    headers: {
+      Authorization: `Bearer ${ACCESS_TOKEN}`,
+    },
     params,
   })
 }

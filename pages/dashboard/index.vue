@@ -4,7 +4,7 @@ import { QUERY_LIST } from '~/constants/lists'
 // const route = useRoute()
 // const type = $computed(() => route.params.type as MediaType || 'movie')
 
-const queries = $computed(() => [QUERY_LIST.book[0], QUERY_LIST.author[0]])
+const queries = $computed(() => [QUERY_LIST.book[0], QUERY_LIST.book[0]])
 
 definePageMeta({
   layout: 'dashboard',

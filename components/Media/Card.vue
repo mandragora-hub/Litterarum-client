@@ -1,31 +1,19 @@
 <script setup lang="ts">
-// import type { Media, MediaType } from '~/types'
+import type { Book, MediaType } from '~/types'
 
-// defineProps<{
-//   type: MediaType
-//   item: Media
-// }>()
-const item = ref({
-  media_type: 'MediaType',
-  id: 'sadf',
-  poster_path: null,
-  title: 'Title',
-  author: { name: 'Author Name' },
-  vote_average: 3,
-})
-const type = 'sadf'
+defineProps<{
+  type: MediaType
+  item: Book
+}>()
 </script>
 
 <template>
-  <NuxtLink
-    :to="`/${item.media_type || type}/${item.id}`"
-    class="w-full h-full p-2"
-  >
+  <NuxtLink :to="`/${type}/${item._id}`" class="w-full h-full p-2">
     <div
       class="block rounded-lg bg-gray-400 aspect-[10/16] transition duration-400 hover:scale-105 hover:z-10"
     >
       <NuxtImg
-        v-if="item.poster_path"
+        v-if="item.coverUrl"
         width="400"
         height="600"
         format="webp"
@@ -40,13 +28,13 @@ const type = 'sadf'
     <div class="text-left mt-2">
       <h5>{{ item.title }}</h5>
       <p class="text-gray-600">
-        {{ item.author.name }}
+        {{ item.author ? item.author.name : 'Anónimo' }}
       </p>
     </div>
     <div class="flex text-sm gap-2 items-center">
-      <StarsRate class="w-20" :value="item.vote_average" />
+      <StarsRate class="w-20" :value="item.downloaded" />
       <div class="opacity-60">
-        {{ item.vote_average }}
+        {{ item.downloaded }}
       </div>
     </div>
   </NuxtLink>

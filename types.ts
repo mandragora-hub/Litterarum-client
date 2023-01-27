@@ -1,16 +1,18 @@
-export type MediaType = 'book' | 'collection' | 'author'
-
+export type MediaType = 'books' | 'collections' | 'authors'
 export interface QueryItem {
   type: MediaType
   title: string
   query: string
 }
 
+export interface MetaPageResult {
+  totalPages: number
+  currentPage: number
+  count: number
+}
 export interface PageResult<T> {
-  page: number
-  results: T[]
-  total_pages: number
-  total_results: number
+  data: T[]
+  meta: MetaPageResult
 }
 
 export interface Tag {
@@ -28,6 +30,7 @@ export interface Author {
 export interface Book {
   _id: string
   title: string
+  coverUrl: string
   basename: string
   downloaded: number
   author: Author

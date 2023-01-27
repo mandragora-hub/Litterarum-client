@@ -8,7 +8,7 @@ const props = defineProps<{
 }>()
 
 const item = await listMedia(props.query.type, props.query.query, 1)
-console.log(item)
+
 const defaultSettings = {
   itemsToShow: 2,
   snapAlign: 'start',
@@ -39,8 +39,8 @@ const breakpoints = {
       </NuxtLink>
     </template>
     <Carousel :settings="defaultSettings" :breakpoints="breakpoints">
-      <Slide v-for="slide in 10" :key="slide">
-        <MediaCard />
+      <Slide v-for="i in item.data" :key="i._id">
+        <MediaCard :item="i" :type="query.type" />
       </Slide>
       <template #addons>
         <Navigation />
