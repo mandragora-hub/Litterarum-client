@@ -7,6 +7,7 @@ const props = defineProps<{
   query: QueryItem
 }>()
 
+const { listMedia } = useLitterarumApi()
 const item = await listMedia(props.query.type, props.query.query, 1)
 
 const defaultSettings = {

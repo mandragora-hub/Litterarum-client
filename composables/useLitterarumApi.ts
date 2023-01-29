@@ -1,12 +1,13 @@
 import { $fetch } from 'ohmyfetch'
 import LRU from 'lru-cache'
 import { hash as ohash } from 'ohash'
-import type { Tag, MediaType, PageResult, Book, Author } from '../types'
+import type { Tag, MediaType, PageResult, Result, Book, Author } from '../types'
 
 const apiBaseUrl = 'http://localhost:3000'
 // const apiBaseUrl = 'https://litterarum.onrender.com'
 const API_VERSION = 'api/v1'
-const ACCESS_TOKEN = 'b14eub2ig974nk92kv231w'
+const ACCESS_TOKEN =
+  '2d2084688dd7c91302101d5e8887aca2e38b2ac9af499e03b5120499739bc7a80c3e37a1104383eb1d3368ad5370942c63b5994be28a6c36bb1f258512147fa0'
 
 const cache = new LRU({
   max: 500,
@@ -30,7 +31,7 @@ function _fetchLitterarumApi(
   })
 }
 
-export function fetchLitterarumApi(
+function fetchLitterarumApi(
   url: string,
   params: Record<string, string | number | undefined> = {}
 ): Promise<any> {
@@ -47,12 +48,20 @@ export function fetchLitterarumApi(
   return cache.get(hash)!
 }
 
-export function listMedia(
+function listMedia(
   type: MediaType,
   query: string,
   page: number
 ): Promise<PageResult<Book>> {
   return fetchLitterarumApi(`${type}/${query}`, { page })
+}
+
+function getBook(id: string): Promise<Result<Book>> {
+  return fetchLitterarumApi(`books/${id}`)
+}
+
+export const useLitterarumApi = () => {
+  return { fetchLitterarumApi, getBook, listMedia }
 }
 
 // export function getMedia(type: MediaType, id: string): Promise<Book> {

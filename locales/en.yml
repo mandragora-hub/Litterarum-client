@@ -72,6 +72,11 @@ others:
   copy: copy
   enabled: enabled
   disabled: disabled
+  pages: pages
+  publication_date: publication date
+  language: language
+  file: file
+  isbn: isbn
 
 Trending Books: "Trending Books"
 Popular Books: "Popular Books"

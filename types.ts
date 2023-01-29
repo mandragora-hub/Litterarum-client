@@ -10,7 +10,18 @@ export interface MetaPageResult {
   currentPage: number
   count: number
 }
-export interface PageResult<T> {
+
+export interface HttpApiResult {
+  code: number
+  success: boolean
+  message: string
+}
+
+export interface Result<T> extends HttpApiResult {
+  data: T
+}
+
+export interface PageResult<T> extends HttpApiResult {
   data: T[]
   meta: MetaPageResult
 }
@@ -30,7 +41,8 @@ export interface Author {
 export interface Book {
   _id: string
   title: string
-  coverUrl: string
+  subtitle?: string
+  coverUrl?: string
   basename: string
   downloaded: number
   author: Author
